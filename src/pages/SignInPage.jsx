@@ -13,7 +13,7 @@ function SignInPage() {
 	}
 
 	return (
-		<div className="min-h-screen w-screen grid place-items-center text-gray-800">
+		<div className="min-h-screen w-screen grid place-items-center text-gray-800 bg-blue-50">
 			<Form signUp={signUp} />
 		</div>	
 	)
