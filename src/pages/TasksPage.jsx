@@ -6,6 +6,8 @@ import TasksList from "../components/TasksList/List"
 
 function TasksPage() {
 	const jokes = useSelector((state) => state.jokes)
+	const user = useSelector((state) => state.user)
+	console.log("User: ", user)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -14,7 +16,7 @@ function TasksPage() {
 
 	return (
 		<main className="min-h-screen w-screen text-gray-800 grid grid-cols-2 auto-rows-min my-8">
-			<h1 className="col-span-2 row-span-1 text-center text-3xl mb-8">My jokes list</h1>
+			<h1 className="col-span-2 row-span-1 text-center text-3xl mb-8">{user.name}'s jokes list</h1>
 			<section className="col-span-1 row-span-1 flex flex-col ">
 				<div className="max-w-xl mx-auto w-full">
 					<div className="flex justify-between items-center mb-4">
