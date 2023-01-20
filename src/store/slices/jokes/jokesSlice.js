@@ -20,6 +20,25 @@ export const jokesSlice = createSlice({
 			})
 		},
 		update(state, action) {
+			const date = new Date()
+			const updatedAt = `${date.getHours() + 1}:${date.getMinutes()} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+
+			const newJoke = {
+				taskId: action.payload.data.id,
+				taskName: action.payload.data.setup,
+				taskContent: action.payload.data.punchline,
+				createdAt: action.payload.joke.createdAt,
+				updatedAt,
+				completed: action.payload.joke.completed
+			}
+
+			state = state.map((joke) => {
+				if(JSON.stringify(joke) === JSON.stringify(action.payload.joke)) {
+					return newJoke
+				}
+				return joke
+			})
+			return state
 		},
 		remove(state, action) {
 		},
