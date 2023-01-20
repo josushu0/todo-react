@@ -9,7 +9,7 @@ export const userSlice = createSlice({
 	},
 	reducers: {
 		setUser(state, action) {
-			state.userId = crypto.randomUUID()
+			state.userId = action.payload.userId === '' ? '' : crypto.randomUUID()
 			state.email = action.payload.email
 			state.name = action.payload.name
 		}
