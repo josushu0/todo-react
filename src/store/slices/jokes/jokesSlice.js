@@ -45,6 +45,16 @@ export const jokesSlice = createSlice({
 			return state
 		},
 		complete(state, action) {
+			state = state.map((joke) => {
+				if(JSON.stringify(joke) === JSON.stringify(action.payload)) {
+					return {
+						...joke,
+						completed: !joke.completed
+					}
+				}
+				return joke
+			})
+			return state
 		},
 		clearAll(state) {
 		}
