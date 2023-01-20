@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getJokes } from "../store/slices/jokes/thunks"
 import { clearAll } from "../store/slices/jokes/jokesSlice"
 import TasksList from "../components/TasksList/List"
+import EmptyList from "../components/TasksList/EmptyList"
 
 function TasksPage() {
 	const jokes = useSelector((state) => state.jokes)
@@ -28,7 +29,11 @@ function TasksPage() {
 							New
 						</button>
 					</div>
+					{ jokes.length > 0 ?
 					<TasksList jokes={jokes} completed={false} />
+						:
+					<EmptyList />
+					}
 				</div>
 			</section>
 			<section className="col-span-1 row-span-1 flex flex-col ">
