@@ -24,7 +24,7 @@ export const jokesSlice = createSlice({
 			const updatedAt = `${date.getHours() + 1}:${date.getMinutes()} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 
 			const newJoke = {
-				taskId: action.payload.data.id,
+				taskId: crypto.randomUUID(),
 				taskName: action.payload.data.setup,
 				taskContent: action.payload.data.punchline,
 				createdAt: action.payload.joke.createdAt,
@@ -33,7 +33,7 @@ export const jokesSlice = createSlice({
 			}
 
 			state = state.map((joke) => {
-				if(JSON.stringify(joke) === JSON.stringify(action.payload.joke)) {
+				if(joke.taskId === action.payload.joke.taskId) {
 					return newJoke
 				}
 				return joke
@@ -41,12 +41,12 @@ export const jokesSlice = createSlice({
 			return state
 		},
 		remove(state, action) {
-			state = state.filter((joke) => JSON.stringify(joke) !== JSON.stringify(action.payload))
+			state = state.filter((joke) => joke.taskId !== action.payload.taskId)
 			return state
 		},
 		complete(state, action) {
 			state = state.map((joke) => {
-				if(JSON.stringify(joke) === JSON.stringify(action.payload)) {
+				if(joke.taskId === action.payload.taskId) {
 					return {
 						...joke,
 						completed: !joke.completed
