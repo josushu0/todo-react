@@ -1,21 +1,15 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Input } from "./Input";
 
-export function Form() {
+export function Form({signUp}) {
 	const [formState, setFormState] = useState({
 		email: '',
 		name: ''
 	})
-	const navigate = useNavigate()
 	
 	function handleSubmit(e) {
 		e.preventDefault()
-		console.log({
-			...formState,
-			userId: crypto.randomUUID()
-		})
-		navigate('/tasks')
+		signUp(formState)
 	}
 	
 	return (
