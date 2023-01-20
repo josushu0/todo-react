@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import jokesSlice from './slices/jokes/jokesSlice'
+import jokesReducer from './slices/jokes/jokesSlice'
 
 export default configureStore({
 	reducer: {
-		jokes: jokesSlice
+		jokes: jokesReducer
 	},
 })
 
