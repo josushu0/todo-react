@@ -57,6 +57,13 @@ export const jokesSlice = createSlice({
 			return state
 		},
 		clearAll(state) {
+			state = state.filter((joke) => {
+				if(joke.completed) {
+					return false
+				}
+				return true
+			})
+			return state
 		}
 	}
 })
