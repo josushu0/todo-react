@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 
-function NavBar() {
+function NavBar({logOut}) {
 	const user = useSelector((state) => state.user)
-	const navigate = useNavigate()
+
+	function handleLogout() {
+		logOut()
+	}
+
 	return (
 		<div className="col-span-2 row-span-1 mb-8 bg-blue-400 text-white shadow">
 			<div className="mx-4 my-3 flex justify-between items-center">
@@ -13,7 +16,7 @@ function NavBar() {
 				</div>
 				<div className="flex items-center gap-2">
 					<h1 className="text-xl capitalize">{user.name || "User"}</h1>
-					<button onClick={() => navigate('/')}
+					<button onClick={() => handleLogout()}
 						className="flex items-center justify-center rounded-full bg-blue-700 h-10 w-10 shadow hover:bg-blue-600 focus:outline focus:outline-blue-700/50">
 						<span className="sr-only">Logout</span>
 						<svg

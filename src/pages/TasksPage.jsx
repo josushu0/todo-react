@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getJokes } from "../store/slices/jokes/thunks"
 import { clearAll } from "../store/slices/jokes/jokesSlice"
+import { setUser } from "../store/slices/user/userSlice"
+import { useNavigate } from "react-router-dom"
 import TasksList from "../components/TasksList/List"
 import EmptyList from "../components/TasksList/EmptyList"
 import NavBar from "../components/NavBar/NavBar"
@@ -9,6 +11,16 @@ import NavBar from "../components/NavBar/NavBar"
 function TasksPage() {
 	const jokes = useSelector((state) => state.jokes)
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
+
+	function logOut() {
+		dispatch(setUser({
+			userId: '',
+			email: '',
+			name: ''
+		}))
+		navigate('/')	
+	}
 
 	useEffect(() => {
 		localStorage.setItem('jokes', JSON.stringify(jokes))
@@ -16,7 +28,7 @@ function TasksPage() {
 
 	return (
 		<main className="min-h-screen w-screen text-gray-800 grid grid-cols-2 auto-rows-min">
-			<NavBar />
+			<NavBar logOut={logOut} />
 			<section className="col-span-1 row-span-1 flex flex-col ">
 				<div className="max-w-xl mx-auto w-full">
 					<div className="flex justify-between items-center mb-4">
