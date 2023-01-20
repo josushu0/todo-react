@@ -8,7 +8,7 @@ function NavBar({logOut}) {
 	}
 
 	return (
-		<div className="col-span-2 row-span-1 mb-8 bg-blue-400 text-white shadow">
+		<div className="sm:col-span-2 bg-blue-400 text-white shadow">
 			<div className="mx-4 my-3 flex justify-between items-center">
 				<div className="flex items-center gap-2 text-lg">
 					<img src="./favicon.svg" />

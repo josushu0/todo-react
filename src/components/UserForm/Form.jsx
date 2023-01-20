@@ -13,7 +13,7 @@ export function Form({signUp}) {
 	}
 	
 	return (
-		<form onSubmit={handleSubmit} className="flex flex-col items-center gap-2 w-full max-w-sm">
+		<form onSubmit={handleSubmit} className="flex flex-col items-center gap-2 w-full max-w-sm px-4 sm:px-0">
 			<img src="./favicon.svg" className="h-20"/>
 			<h1 className="text-2xl font-bold mb-4">Pocket Jokes</h1>
 			<Input type="email" name="email" label="Email" value={formState} setValue={setFormState}/>

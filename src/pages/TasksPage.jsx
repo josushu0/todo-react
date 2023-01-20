@@ -27,9 +27,9 @@ function TasksPage() {
 	}, [jokes])
 
 	return (
-		<main className="min-h-screen w-screen text-gray-800 grid grid-cols-2 auto-rows-min">
+		<main className="min-h-screen w-screen text-gray-800 grid gap-y-8 sm:grid-cols-2 auto-rows-min pb-4">
 			<NavBar logOut={logOut} />
-			<section className="col-span-1 row-span-1 flex flex-col ">
+			<section className="row-span-1 px-2 sm:px-0 col-span-1 flex flex-col">
 				<div className="max-w-xl mx-auto w-full">
 					<div className="flex justify-between items-center mb-4">
 						<h2 className="inline text-xl">Jokes to tell</h2>
@@ -47,7 +47,7 @@ function TasksPage() {
 					}
 				</div>
 			</section>
-			<section className="col-span-1 row-span-1 flex flex-col ">
+			<section className="row-span-1 px-2 sm:px-0 col-span-1 flex flex-col ">
 				<div className="max-w-xl mx-auto w-full">
 					<div className="flex justify-between items-center mb-4">
 						<h2 className="inline text-xl">Jokes told</h2>
