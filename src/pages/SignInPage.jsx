@@ -1,4 +1,4 @@
-import { Form } from "../components/UserForm/"
+import { Form } from "../components/UserForm/Form"
 
 function SignInPage() {
 	return (

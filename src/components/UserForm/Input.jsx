@@ -7,7 +7,7 @@ export function Input({ type, name, label, value, setValue }) {
 	}
 
 	return (
-		<div>
+		<div className="w-full">
 			<label htmlFor={name} className="block">{label}</label>
 			<input
 				type={type}
