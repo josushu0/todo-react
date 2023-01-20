@@ -12,8 +12,10 @@ function NavBar() {
 					<h1>Pocket Jokes</h1>
 				</div>
 				<div className="flex items-center gap-2">
-					<h1 className="text-xl">{user.name || "User"}</h1>
-					<button onClick={() => navigate('/')} className="flex items-center justify-center rounded-full bg-blue-700 h-10 w-10">
+					<h1 className="text-xl capitalize">{user.name || "User"}</h1>
+					<button onClick={() => navigate('/')}
+						className="flex items-center justify-center rounded-full bg-blue-700 h-10 w-10 shadow hover:bg-blue-600 focus:outline focus:outline-blue-700/50">
+						<span className="sr-only">Logout</span>
 						<svg
 							xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" className="h-5 fill-white">
 							<g id="feLogout0" fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
