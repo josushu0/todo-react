@@ -41,6 +41,8 @@ export const jokesSlice = createSlice({
 			return state
 		},
 		remove(state, action) {
+			state = state.filter((joke) => JSON.stringify(joke) !== JSON.stringify(action.payload))
+			return state
 		},
 		complete(state, action) {
 		},
